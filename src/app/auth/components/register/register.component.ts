@@ -35,7 +35,7 @@ ngOnInit(): void {
   getAllStudents(){
     this.service.getAllUsers('student').subscribe((res:any)=>{
       this.studentsAccount = res
-      console.log(this.studentsAccount)
+   
     })
   }
   submit(){

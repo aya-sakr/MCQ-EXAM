@@ -22,6 +22,7 @@ userLogin:any={}
   getSubjects(){
     this.docServ.getAllSubjects().subscribe((res:any)=>{
       this.subjectsArray =res
+   
 
 
 

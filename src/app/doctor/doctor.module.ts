@@ -19,10 +19,10 @@ import { SubjectsComponent } from './components/subjects/subjects.component';
     CommonModule,
 
   ],
-  exports:[
-    NewExamComponent,
-    StudentsComponent,
-    SubjectsComponent
-  ]
+  // exports:[
+  //   NewExamComponent,
+  //   StudentsComponent,
+  //   SubjectsComponent
+  // ]
 })
 export class DoctorModule { }

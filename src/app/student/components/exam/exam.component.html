@@ -1,32 +1,40 @@
 <div class="examBox">
-    <div class="examhead text-center"><h2>اختبار اللفة العربية</h2></div>
-    <div class="quizBox">
-        <strong ><span class="text-danger">سؤال 1</span> .  test</strong>
+    <div class="examhead text-center"><h2>{{subjectArray?.name}}</h2></div>
+    <div class="quizBox text-right"*ngFor="let item of subjectArray?.questions ; let i = index" >
+        <strong ><span class="text-danger ">سؤال 1</span> {{item.question}}</strong>
         <div class="row mt-3" >
             <div class="col-md-6 col-sm-12">
-                <mat-radio-button value="answer1" color="warn"></mat-radio-button>
-                <label>تيست</label>
+                <mat-radio-button value="{{item.answer1}}"*ngIf="userInfo?.role !== 'doctor'" (change)="chane($event)"  name="{{i}}" color="warn"></mat-radio-button>
+                <label>A.{{item.answer1}}</label>
             </div>
 
             <div class="col-md-6 col-sm-12">
-                <mat-radio-button value="answer2"  color="warn"></mat-radio-button>
-                <label>تيست</label>
+                <mat-radio-button value="{{item.answer2}}" *ngIf="userInfo?.role !== 'doctor'"  (change)="chane($event)" name="{{i}}"  color="warn"></mat-radio-button>
+                <label>B.{{item.answer2}}</label>
             </div>
 
             <div class="col-md-6 col-sm-12">
-                <mat-radio-button value="answer3"  color="warn"></mat-radio-button>
-                <label>تيست</label>
+                <mat-radio-button value="{{item.answer3}}" *ngIf="userInfo?.role !== 'doctor'" (change)="chane($event)" name="{{i}}"  color="warn"></mat-radio-button>
+                <label>C.{{item.answer3}}</label>
             </div>
 
             <div class="col-md-6 col-sm-12">
-                <mat-radio-button value="answer4" color="warn"></mat-radio-button>
-                <label>تيست</label>
+                <mat-radio-button value="{{item.answer4}}" *ngIf="userInfo?.role !== 'doctor'" (change)="chane($event)" name="{{i}}"  color="warn"></mat-radio-button>
+                <label>D.{{item.answer4}}</label>
+
             </div>
+
         </div>
+        <div class="text-left">
+          <button mat-raised-button color="warn" (click)="delet(i)"  *ngIf="userInfo?.role == 'doctor'"   class="mx-1">حذف</button>
+
+        </div>
+
         <hr>
     </div>
-    <div class="text-center">
-        <button class="btn btn-success px-5 fs-5"> النتيجة</button>
+    <div class="text-center result" *ngIf="userInfo?.role == 'student'" >
+      <span *ngIf="result" class=" text-success fs-4">{{total}}/{{subjectArray?.questions.length}}</span>
+        <button *ngIf="!result" class="btn btn-success px-5 fs-5" (click)="getResult()" > النتيجة</button>
     </div>
 
 </div>
