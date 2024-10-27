@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 export class SubjectsComponent implements OnInit {
 subjectsArray:any[]=[]
 userLogin:any={}
+studentInfo:any[]=[]
 
   constructor(private docServ :DoctorService,private authServ:AuthService) { }
 
@@ -22,12 +23,13 @@ userLogin:any={}
   getSubjects(){
     this.docServ.getAllSubjects().subscribe((res:any)=>{
       this.subjectsArray =res
-   
+
 
 
 
     })
   }
+
   getUserLogin(){
     this.authServ.getRole().subscribe((res:any)=>{
       this.userLogin =res
@@ -35,6 +37,7 @@ userLogin:any={}
 
     })
   }
+
   deletSubject(index:number){
     this.subjectsArray.splice(index,1)
     let id = this.subjectsArray[index].id

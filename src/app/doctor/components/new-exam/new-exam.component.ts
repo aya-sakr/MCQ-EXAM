@@ -94,7 +94,7 @@ export class NewExamComponent implements OnInit {
       this.service.creatQuestions(model).subscribe((res: any) => {
         this.openLastTap=true
         this.id=res.id
-        console.log(this.id)
+        
 
 
       });
@@ -115,6 +115,7 @@ export class NewExamComponent implements OnInit {
     }
     this.service.updateQuestion(model,this.id).subscribe((res:any)=>{
       alert('تم حذف السوال بنجاح')
+
     })
 
   }

@@ -1,32 +1,69 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
-  styleUrls: ['./students.component.scss']
+  styleUrls: ['./students.component.scss'],
 })
 export class StudentsComponent implements OnInit {
-  ELEMENT_DATA: any[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
-  dataSource:any
-  displayedColumns:any
-  constructor() {
-    this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
-    this.dataSource = this.ELEMENT_DATA;
-   }
+  userSubject:any
+  dataSource: any;
+  thesubjects:any
+  displayedColumns: any;
+  subjectArray:any
+  constructor(private autService:AuthService) {
+    this.autService.getAllUsers("student").subscribe((res:any)=>{
+      console.log(res)
+      this.userSubject=res?.map((student:any)=>{
+        if(student.subject){
+          return student.subject?.map((sub:any)=>{
+            return {
+              name:student.username,
+              subjectName:sub.name,
+              degree:sub.degree
 
-  
-  ngOnInit(): void {
+
+            }
+           })
+
+        }else{
+          return [{
+            name:student.username,
+            subjectName:"-",
+            degree:"-"
+
+
+          }]
+
+        }
+
+
+      })
+
+     this.subjectArray=[]
+    this.userSubject.forEach((element:any) => {
+      element.forEach((item:any)=> {
+        this.subjectArray.push({
+          name:item.name,
+          subjectName:item.subjectName,
+          degree:item.degree
+
+        })
+
+      });
+
+    });
+
+      console.log(this.userSubject)
+      console.log(this.subjectArray)
+
+
+    })
+    this.displayedColumns = ['position', 'name', 'subjectName', 'degree'];
   }
 
+  ngOnInit(): void {}
 }
+

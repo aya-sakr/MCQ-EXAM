@@ -35,7 +35,7 @@ ngOnInit(): void {
   getAllStudents(){
     this.service.getAllUsers('student').subscribe((res:any)=>{
       this.studentsAccount = res
-   
+
     })
   }
   submit(){
@@ -52,7 +52,18 @@ ngOnInit(): void {
     }else{
       this.service.userData(model).subscribe((res:any)=>{
         alert("sucess register")
-        this.router.navigate(['/subjects'])
+        const model = {
+          username: res.username,
+          userId:res.id,
+          role: 'student',
+        };
+
+        this.service.login(model).subscribe((res: any) => {
+          this.service.user.next(res);
+          alert('تم تسجيل الدخول بنجاح');
+          this.router.navigate(['/subjects']);
+        });
+
 
         })
 

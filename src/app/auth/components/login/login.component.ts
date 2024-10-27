@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     } else {
       const model = {
         username: this.UsersLogin[index].username,
-
+        userId: this.UsersLogin[index].id,
         role: this.type,
       };
 

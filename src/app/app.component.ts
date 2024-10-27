@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 getUserData(){
   this.service.getRole().subscribe((res:any)=>{
     this.service.user.next(res);
-  
+
 
   })
 }
