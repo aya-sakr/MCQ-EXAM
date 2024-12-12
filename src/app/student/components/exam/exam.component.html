@@ -1,7 +1,7 @@
 <div class="examBox">
     <div class="examhead text-center"><h2>{{subjectArray?.name}}</h2></div>
     <div class="quizBox text-right"*ngFor="let item of subjectArray?.questions ; let i = index" >
-        <strong ><span class="text-danger ">سؤال 1</span> {{item.question}}</strong>
+        <strong ><span class="text-danger ">سؤال {{i+1}}</span> {{item.question}}</strong>
         <div class="row mt-3" >
             <div class="col-md-6 col-sm-12">
                 <mat-radio-button value="{{item.answer1}}"*ngIf="userInfo?.role !== 'doctor' && !result  && vaildUser" (change)="chane($event)"  name="{{i}}" color="warn"></mat-radio-button>

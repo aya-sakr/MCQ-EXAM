@@ -76,9 +76,9 @@
   ],
   "login": [
     {
-      "username": "ali",
-      "userId": "c5ed",
-      "role": "student",
+      "username": "Admin",
+      "userId": "1",
+      "role": "doctor",
       "id": "1"
     }
   ],
