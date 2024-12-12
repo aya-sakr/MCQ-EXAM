@@ -1,0 +1,131 @@
+{
+  "student": [
+    {
+      "username": "aya",
+      "email": "ayasakr@gmail.com",
+      "password": "123",
+      "subject": [
+        {
+          "name": "math",
+          "id": "9fa4",
+          "degree": 0
+        },
+        {
+          "name": "math",
+          "id": "9fa4",
+          "degree": 0
+        },
+        {
+          "name": "Arabic",
+          "id": "83fe",
+          "degree": 2
+        }
+      ],
+      "id": "1782"
+    },
+    {
+      "id": "0a93",
+      "username": "so",
+      "email": "so@gmail.com",
+      "password": "123"
+    },
+    {
+      "username": "omar",
+      "email": "omar@gmail.com",
+      "password": "123",
+      "subject": [
+        {
+          "name": "math",
+          "id": "9fa4",
+          "degree": 1
+        },
+        {
+          "name": "Arabic",
+          "id": "83fe",
+          "degree": 2
+        }
+      ],
+      "id": "b73d"
+    },
+    {
+      "id": "7e8c",
+      "username": "omar",
+      "email": "omarali@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "55bd",
+      "username": "test",
+      "email": "test@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "c5ed",
+      "username": "ali",
+      "email": "ali@gmail.com",
+      "password": "123"
+    }
+  ],
+  "doctor": [
+    {
+      "id": "1",
+      "username": "Admin",
+      "email": "admin@gmail.com",
+      "password": "1231"
+    }
+  ],
+  "login": [
+    {
+      "username": "ali",
+      "userId": "c5ed",
+      "role": "student",
+      "id": "1"
+    }
+  ],
+  "subject": [
+    {
+      "id": "43bb",
+      "name": "اللغة العربية",
+      "questions": [
+        {
+          "question": "ل",
+          "answer1": "ل",
+          "answer2": "م",
+          "answer3": "ث",
+          "answer4": "ف",
+          "rightAnswer": "ل"
+        },
+        {
+          "question": "ا",
+          "answer1": "ا",
+          "answer2": "ي",
+          "answer3": "ك",
+          "answer4": "خ",
+          "rightAnswer": "ا"
+        }
+      ]
+    },
+    {
+      "id": "bf8a",
+      "name": "الرياضيات",
+      "questions": [
+        {
+          "question": "5/5",
+          "answer1": "1",
+          "answer2": "7",
+          "answer3": "58",
+          "answer4": "9",
+          "rightAnswer": "1"
+        },
+        {
+          "question": "6+7",
+          "answer1": "14",
+          "answer2": "13",
+          "answer3": "17",
+          "answer4": "15",
+          "rightAnswer": "13"
+        }
+      ]
+    }
+  ]
+}
